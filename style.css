@@ -1,0 +1,1798 @@
+/* ==========================================================
+   RESET
+========================================================== */
+
+* {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing:
+        border-box;
+
+}
+
+
+:root {
+
+    --background:
+        #050711;
+
+    --panel:
+        rgba(8,10,23,.86);
+
+    --white:
+        #f7f4f6;
+
+    --muted:
+        #9c9cab;
+
+    --pink:
+        #ff7fa9;
+
+    --pink-light:
+        #ffc2d6;
+
+    --purple:
+        #a77cff;
+
+    --gold:
+        #f5d79f;
+
+}
+
+
+html,
+body {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    overflow:
+        hidden;
+
+}
+
+
+body {
+
+    background:
+        var(--background);
+
+    color:
+        var(--white);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    user-select:
+        none;
+
+    touch-action:
+        none;
+
+}
+
+
+button {
+
+    font:
+        inherit;
+
+}
+
+
+/* ==========================================================
+   SCREEN
+========================================================== */
+
+.screen {
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    opacity:
+        0;
+
+    visibility:
+        hidden;
+
+    pointer-events:
+        none;
+
+    transition:
+
+        opacity
+        1s ease,
+
+        visibility
+        1s ease;
+
+}
+
+
+.screen.active {
+
+    opacity:
+        1;
+
+    visibility:
+        visible;
+
+    pointer-events:
+        auto;
+
+}
+
+
+/* ==========================================================
+   MENU
+========================================================== */
+
+#menu {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    overflow:
+        hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 35%,
+            #16152c,
+            #060713 68%
+        );
+
+}
+
+
+.menu-background {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+}
+
+
+.nebula {
+
+    position:
+        absolute;
+
+    width:
+        600px;
+
+    height:
+        600px;
+
+    border-radius:
+        50%;
+
+    filter:
+        blur(110px);
+
+    opacity:
+        .16;
+
+}
+
+
+.nebula-one {
+
+    top:
+        -250px;
+
+    left:
+        -200px;
+
+    background:
+        #9d5fff;
+
+}
+
+
+.nebula-two {
+
+    bottom:
+        -300px;
+
+    right:
+        -180px;
+
+    background:
+        #ff729d;
+
+}
+
+
+.menu-stars {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    opacity:
+        .5;
+
+    background-image:
+
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.9)
+            0 1px,
+            transparent 1.3px
+        );
+
+    background-size:
+        95px 95px;
+
+    animation:
+        moveStars
+        45s
+        linear
+        infinite;
+
+}
+
+
+@keyframes moveStars {
+
+    from {
+
+        transform:
+            translate(0,0);
+
+    }
+
+    to {
+
+        transform:
+            translate(
+                -95px,
+                -95px
+            );
+
+    }
+
+}
+
+
+.menu-content {
+
+    position:
+        relative;
+
+    z-index:
+        5;
+
+    width:
+        min(
+            680px,
+            90vw
+        );
+
+    text-align:
+        center;
+
+}
+
+
+.eyebrow {
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:
+        9px;
+
+    font-weight:
+        bold;
+
+    letter-spacing:
+        5px;
+
+    color:
+        rgba(255,255,255,.45);
+
+}
+
+
+.menu-content h1 {
+
+    margin-top:
+        18px;
+
+    font-size:
+        clamp(
+            85px,
+            15vw,
+            160px
+        );
+
+    line-height:
+        .72;
+
+    font-weight:
+        400;
+
+    letter-spacing:
+        -6px;
+
+}
+
+
+.menu-content h1 span {
+
+    display:
+        block;
+
+    color:
+        var(--pink-light);
+
+}
+
+
+.title-divider {
+
+    width:
+        70px;
+
+    height:
+        1px;
+
+    margin:
+        40px auto
+        20px;
+
+    background:
+        rgba(255,255,255,.3);
+
+}
+
+
+.game-subtitle {
+
+    color:
+        var(--pink);
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:
+        12px;
+
+    letter-spacing:
+        7px;
+
+}
+
+
+.menu-description {
+
+    max-width:
+        520px;
+
+    margin:
+        30px auto
+        0;
+
+    color:
+        var(--muted);
+
+    font-size:
+        15px;
+
+    line-height:
+        1.8;
+
+}
+
+
+.primary-button {
+
+    margin-top:
+        34px;
+
+    min-width:
+        180px;
+
+    padding:
+        14px 25px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        28px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.16);
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(255,255,255,.05);
+
+    color:
+        white;
+
+    cursor:
+        pointer;
+
+    transition:
+        .3s ease;
+
+}
+
+
+.primary-button:hover {
+
+    transform:
+        translateY(-3px);
+
+    background:
+        rgba(255,127,169,.12);
+
+    border-color:
+        rgba(255,127,169,.55);
+
+}
+
+
+.primary-button span {
+
+    color:
+        var(--pink);
+
+}
+
+
+.menu-note {
+
+    margin-top:
+        30px;
+
+    color:
+        rgba(255,255,255,.22);
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:
+        8px;
+
+    letter-spacing:
+        2px;
+
+}
+
+
+/* ==========================================================
+   GAME
+========================================================== */
+
+#gameScreen {
+
+    background:
+        #02040a;
+
+}
+
+
+#gameContainer {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    overflow:
+        hidden;
+
+}
+
+
+#gameCanvas {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    image-rendering:
+        pixelated;
+
+    image-rendering:
+        crisp-edges;
+
+}
+
+
+.vignette {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    z-index:
+        10;
+
+    pointer-events:
+        none;
+
+    background:
+
+        radial-gradient(
+            ellipse at center,
+            transparent 48%,
+            rgba(0,0,0,.48) 100%
+        );
+
+}
+
+
+/* ==========================================================
+   HUD
+========================================================== */
+
+#hud {
+
+    position:
+        absolute;
+
+    z-index:
+        20;
+
+    top:
+        max(
+            22px,
+            env(safe-area-inset-top)
+        );
+
+    left:
+        30px;
+
+    right:
+        30px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    pointer-events:
+        none;
+
+}
+
+
+.hud-label {
+
+    display:
+        block;
+
+    color:
+        rgba(255,255,255,.35);
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:
+        7px;
+
+    letter-spacing:
+        4px;
+
+}
+
+
+#hudChapter {
+
+    display:
+        block;
+
+    margin-top:
+        5px;
+
+    color:
+        rgba(255,255,255,.82);
+
+    font-size:
+        13px;
+
+    font-weight:
+        400;
+
+}
+
+
+.connection {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+}
+
+
+.heart-symbol {
+
+    color:
+        var(--pink);
+
+    text-shadow:
+
+        0 0 15px
+        rgba(
+            255,
+            127,
+            169,
+            .5
+        );
+
+}
+
+
+.connection-track {
+
+    width:
+        120px;
+
+    height:
+        5px;
+
+    overflow:
+        hidden;
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(255,255,255,.1);
+
+}
+
+
+.connection-fill {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    border-radius:
+        inherit;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #ff6799,
+            #ffc2d6
+        );
+
+    box-shadow:
+
+        0 0 12px
+        rgba(
+            255,
+            127,
+            169,
+            .7
+        );
+
+    transition:
+        width
+        .2s ease;
+
+}
+
+
+/* ==========================================================
+   OBJECTIVE
+========================================================== */
+
+#objective {
+
+    position:
+        absolute;
+
+    z-index:
+        20;
+
+    top:
+        82px;
+
+    left:
+        30px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        9px;
+
+    color:
+        rgba(255,255,255,.52);
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:
+        9px;
+
+}
+
+
+#objective > span {
+
+    color:
+        var(--pink);
+
+}
+
+
+/* ==========================================================
+   CHAPTER CARD
+========================================================== */
+
+.chapter-card {
+
+    position:
+        absolute;
+
+    z-index:
+        40;
+
+    top:
+        50%;
+
+    left:
+        50%;
+
+    transform:
+        translate(
+            -50%,
+            -45%
+        );
+
+    width:
+        min(
+            600px,
+            90vw
+        );
+
+    text-align:
+        center;
+
+    opacity:
+        0;
+
+    pointer-events:
+        none;
+
+}
+
+
+.chapter-card.show {
+
+    animation:
+        chapterReveal
+        3.6s
+        ease
+        forwards;
+
+}
+
+
+@keyframes chapterReveal {
+
+    0% {
+
+        opacity:
+            0;
+
+        transform:
+            translate(
+                -50%,
+                -43%
+            );
+
+    }
+
+    18%,
+    72% {
+
+        opacity:
+            1;
+
+        transform:
+            translate(
+                -50%,
+                -50%
+            );
+
+    }
+
+    100% {
+
+        opacity:
+            0;
+
+        transform:
+            translate(
+                -50%,
+                -57%
+            );
+
+    }
+
+}
+
+
+#chapterNumber {
+
+    color:
+        var(--pink);
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:
+        9px;
+
+    letter-spacing:
+        5px;
+
+}
+
+
+#chapterTitle {
+
+    margin-top:
+        12px;
+
+    font-size:
+        clamp(
+            44px,
+            7vw,
+            78px
+        );
+
+    font-weight:
+        400;
+
+}
+
+
+.chapter-line {
+
+    width:
+        45px;
+
+    height:
+        1px;
+
+    margin:
+        18px auto;
+
+    background:
+        rgba(255,255,255,.3);
+
+}
+
+
+#chapterSubtitle {
+
+    color:
+        rgba(255,255,255,.55);
+
+    font-size:
+        14px;
+
+    line-height:
+        1.7;
+
+}
+
+
+/* ==========================================================
+   DIALOGUE
+========================================================== */
+
+.dialogue-box {
+
+    position:
+        absolute;
+
+    z-index:
+        50;
+
+    left:
+        50%;
+
+    bottom:
+        35px;
+
+    transform:
+        translateX(-50%)
+        translateY(15px);
+
+    width:
+        min(
+            720px,
+            90vw
+        );
+
+    padding:
+        16px 20px
+        13px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    border-radius:
+        12px;
+
+    background:
+        rgba(5,7,17,.87);
+
+    backdrop-filter:
+        blur(16px);
+
+    box-shadow:
+
+        0 18px 60px
+        rgba(0,0,0,.35);
+
+    opacity:
+        0;
+
+    visibility:
+        hidden;
+
+    cursor:
+        pointer;
+
+    transition:
+        .3s ease;
+
+}
+
+
+.dialogue-box.show {
+
+    opacity:
+        1;
+
+    visibility:
+        visible;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+
+}
+
+
+.dialogue-header {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+}
+
+
+.dialogue-portrait {
+
+    width:
+        8px;
+
+    height:
+        8px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--pink);
+
+    box-shadow:
+
+        0 0 10px
+        currentColor;
+
+}
+
+
+.dialogue-name {
+
+    color:
+        var(--pink);
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:
+        9px;
+
+    letter-spacing:
+        3px;
+
+}
+
+
+.dialogue-text {
+
+    min-height:
+        30px;
+
+    margin-top:
+        9px;
+
+    color:
+        #f6f2f4;
+
+    font-size:
+        16px;
+
+    line-height:
+        1.6;
+
+}
+
+
+.dialogue-continue {
+
+    display:
+        block;
+
+    margin-top:
+        8px;
+
+    text-align:
+        right;
+
+    color:
+        rgba(255,255,255,.25);
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:
+        7px;
+
+    letter-spacing:
+        2px;
+
+}
+
+
+/* ==========================================================
+   HINT
+========================================================== */
+
+.hint {
+
+    position:
+        absolute;
+
+    z-index:
+        15;
+
+    right:
+        30px;
+
+    bottom:
+        22px;
+
+    color:
+        rgba(255,255,255,.23);
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:
+        8px;
+
+    letter-spacing:
+        2px;
+
+}
+
+
+/* ==========================================================
+   FADE
+========================================================== */
+
+.fade {
+
+    position:
+        absolute;
+
+    z-index:
+        100;
+
+    inset:
+        0;
+
+    opacity:
+        0;
+
+    pointer-events:
+        none;
+
+    background:
+        #03040b;
+
+    transition:
+        opacity
+        .9s ease;
+
+}
+
+
+.fade.active {
+
+    opacity:
+        1;
+
+}
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+.mobile-controls {
+
+    display:
+        none;
+
+}
+
+
+@media(max-width:750px) {
+
+    #hud {
+
+        left:
+            16px;
+
+        right:
+            16px;
+
+    }
+
+
+    #objective {
+
+        left:
+            16px;
+
+        top:
+            70px;
+
+    }
+
+
+    .hint {
+
+        display:
+            none;
+
+    }
+
+
+    .dialogue-box {
+
+        bottom:
+            125px;
+
+        width:
+            92vw;
+
+    }
+
+
+    .mobile-controls {
+
+        position:
+            absolute;
+
+        z-index:
+            150;
+
+        left:
+            15px;
+
+        right:
+            15px;
+
+        bottom:
+            max(
+                12px,
+                env(safe-area-inset-bottom)
+            );
+
+        display:
+            flex;
+
+        justify-content:
+            space-between;
+
+        align-items:
+            center;
+
+    }
+
+
+    .dpad {
+
+        position:
+            relative;
+
+        width:
+            140px;
+
+        height:
+            100px;
+
+    }
+
+
+    .mobile-key {
+
+        position:
+            absolute;
+
+        width:
+            44px;
+
+        height:
+            35px;
+
+        border:
+            1px solid
+            rgba(255,255,255,.13);
+
+        border-radius:
+            9px;
+
+        background:
+            rgba(255,255,255,.07);
+
+        color:
+            white;
+
+        backdrop-filter:
+            blur(8px);
+
+    }
+
+
+    .mobile-key:active {
+
+        transform:
+            scale(.9);
+
+        background:
+            rgba(255,127,169,.2);
+
+    }
+
+
+    .key-up {
+
+        top:
+            0;
+
+        left:
+            48px;
+
+    }
+
+
+    .key-left {
+
+        top:
+            37px;
+
+        left:
+            0;
+
+    }
+
+
+    .key-down {
+
+        top:
+            37px;
+
+        left:
+            48px;
+
+    }
+
+
+    .key-right {
+
+        top:
+            37px;
+
+        left:
+            96px;
+
+    }
+
+
+    .action-button {
+
+        width:
+            65px;
+
+        height:
+            65px;
+
+        border:
+            1px solid
+            rgba(255,127,169,.25);
+
+        border-radius:
+            50%;
+
+        background:
+            rgba(255,127,169,.08);
+
+        color:
+            var(--pink);
+
+        font-size:
+            22px;
+
+    }
+
+}
+
+
+/* ==========================================================
+   ENDING
+========================================================== */
+
+#ending {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    overflow:
+        hidden;
+
+    background:
+        #03040b;
+
+}
+
+
+#endingCanvas {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+}
+
+
+.ending-content {
+
+    position:
+        relative;
+
+    z-index:
+        5;
+
+    width:
+        min(
+            680px,
+            92vw
+        );
+
+    text-align:
+        center;
+
+    opacity:
+        0;
+
+    animation:
+        endingAppear
+        2s
+        ease
+        forwards;
+
+    animation-delay:
+        .8s;
+
+}
+
+
+@keyframes endingAppear {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(
+                20px
+            );
+
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(
+                0
+            );
+
+    }
+
+}
+
+
+.ending-eyebrow {
+
+    color:
+        rgba(255,255,255,.35);
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:
+        8px;
+
+    letter-spacing:
+        5px;
+
+}
+
+
+.ending-content h2 {
+
+    margin-top:
+        17px;
+
+    font-size:
+        clamp(
+            64px,
+            11vw,
+            110px
+        );
+
+    line-height:
+        .85;
+
+    font-weight:
+        400;
+
+}
+
+
+.princess {
+
+    margin-top:
+        10px;
+
+    color:
+        var(--pink-light);
+
+    font-size:
+        19px;
+
+    font-style:
+        italic;
+
+}
+
+
+.ending-divider {
+
+    width:
+        45px;
+
+    height:
+        1px;
+
+    margin:
+        28px auto;
+
+    background:
+        rgba(255,255,255,.25);
+
+}
+
+
+.ending-text {
+
+    color:
+        rgba(255,255,255,.55);
+
+    font-size:
+        15px;
+
+    line-height:
+        1.75;
+
+}
+
+
+.ending-text p {
+
+    margin:
+        6px 0;
+
+}
+
+
+.final-heart {
+
+    margin:
+        15px auto;
+
+    color:
+        var(--pink);
+
+    font-size:
+        70px;
+
+    text-shadow:
+
+        0 0 45px
+        rgba(
+            255,
+            127,
+            169,
+            .6
+        );
+
+    animation:
+        heartBeat
+        1.5s
+        infinite;
+
+}
+
+
+@keyframes heartBeat {
+
+    0%,
+    100% {
+
+        transform:
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.13);
+
+    }
+
+}
+
+
+.ending-highlight {
+
+    color:
+        var(--pink-light);
+
+    font-size:
+        18px;
+
+    line-height:
+        1.5;
+
+}
+
+
+.ending-signature {
+
+    margin-top:
+        25px;
+
+}
+
+
+.ending-signature strong {
+
+    display:
+        block;
+
+    font-size:
+        22px;
+
+    font-weight:
+        400;
+
+}
+
+
+.ending-signature span {
+
+    display:
+        block;
+
+    margin-top:
+        7px;
+
+    color:
+        rgba(255,255,255,.4);
+
+    font-size:
+        12px;
+
+}
+
+
+.beginning-message {
+
+    margin-top:
+        26px;
+
+    color:
+        var(--gold);
+
+    font-size:
+        14px;
+
+    font-style:
+        italic;
+
+}
+
+
+.restart-button {
+
+    margin-top:
+        20px;
+
+    padding:
+        9px 17px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.13);
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(255,255,255,.04);
+
+    color:
+        rgba(255,255,255,.55);
+
+    cursor:
+        pointer;
+
+}
+
+
+.restart-button:hover {
+
+    background:
+        rgba(255,127,169,.1);
+
+    color:
+        white;
+
+}
+
+
+/* ==========================================================
+   REDUCED MOTION
+========================================================== */
+
+@media(prefers-reduced-motion:reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            .01ms !important;
+
+        transition-duration:
+            .01ms !important;
+
+    }
+
+}

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <meta
+        name="theme-color"
+        content="#050711"
+    >
+
+    <title>Nós Dois</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+<div id="app">
+
+
+    <!-- =====================================================
+         MENU
+    ====================================================== -->
+
+    <section
+        id="menu"
+        class="screen active"
+    >
+
+        <div class="menu-background">
+
+            <div class="nebula nebula-one"></div>
+            <div class="nebula nebula-two"></div>
+
+        </div>
+
+
+        <div class="menu-stars"></div>
+
+
+        <div class="menu-content">
+
+            <p class="eyebrow">
+                UMA PEQUENA AVENTURA
+            </p>
+
+            <h1>
+
+                Nós
+
+                <span>
+                    Dois
+                </span>
+
+            </h1>
+
+
+            <div class="title-divider"></div>
+
+
+            <p class="game-subtitle">
+                CONTRA TUDO
+            </p>
+
+
+            <p class="menu-description">
+
+                Existem caminhos que parecem difíceis
+                quando estamos sozinhos.
+
+                <br><br>
+
+                Mas algumas aventuras ficam um pouco
+                mais fáceis quando existe alguém
+                caminhando ao nosso lado.
+
+            </p>
+
+
+            <button
+                id="startButton"
+                class="primary-button"
+            >
+
+                começar
+
+                <span>→</span>
+
+            </button>
+
+
+            <p class="menu-note">
+                feito especialmente para Nina
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         GAME
+    ====================================================== -->
+
+    <section
+        id="gameScreen"
+        class="screen"
+    >
+
+        <div id="gameContainer">
+
+
+            <!-- CANVAS -->
+
+            <canvas
+                id="gameCanvas"
+            ></canvas>
+
+
+            <!-- VINHETA -->
+
+            <div class="vignette"></div>
+
+
+            <!-- OVERLAY DE CHUVA -->
+
+            <div
+                id="rainOverlay"
+                class="rain-overlay"
+            ></div>
+
+
+            <!-- HUD -->
+
+            <header id="hud">
+
+                <div class="chapter-info">
+
+                    <span class="hud-label">
+                        CAPÍTULO
+                    </span>
+
+                    <strong id="hudChapter">
+                        I — O ENCONTRO
+                    </strong>
+
+                </div>
+
+
+                <div class="connection">
+
+                    <span class="heart-symbol">
+                        ♥
+                    </span>
+
+                    <div class="connection-track">
+
+                        <div
+                            id="connectionFill"
+                            class="connection-fill"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- OBJETIVO -->
+
+            <div id="objective">
+
+                <span>
+                    ◇
+                </span>
+
+                <p id="objectiveText">
+                    Encontre Nina
+                </p>
+
+            </div>
+
+
+            <!-- CAPÍTULO -->
+
+            <div
+                id="chapterCard"
+                class="chapter-card"
+            >
+
+                <p id="chapterNumber">
+                    CAPÍTULO I
+                </p>
+
+                <h2 id="chapterTitle">
+                    O Encontro
+                </h2>
+
+                <div class="chapter-line"></div>
+
+                <span id="chapterSubtitle">
+
+                    Toda aventura precisa
+                    começar em algum lugar.
+
+                </span>
+
+            </div>
+
+
+            <!-- DIÁLOGO -->
+
+            <div
+                id="dialogueBox"
+                class="dialogue-box"
+            >
+
+                <div class="dialogue-header">
+
+                    <div
+                        id="dialoguePortrait"
+                        class="dialogue-portrait"
+                    ></div>
+
+                    <span
+                        id="dialogueName"
+                        class="dialogue-name"
+                    >
+                        NINA
+                    </span>
+
+                </div>
+
+
+                <p
+                    id="dialogueText"
+                    class="dialogue-text"
+                ></p>
+
+
+                <span class="dialogue-continue">
+                    toque para continuar
+                </span>
+
+            </div>
+
+
+            <!-- DICA -->
+
+            <div
+                id="hint"
+                class="hint"
+            >
+                WASD / SETAS PARA ANDAR
+            </div>
+
+
+            <!-- FADE CINEMATOGRÁFICO -->
+
+            <div
+                id="fade"
+                class="fade"
+            ></div>
+
+        </div>
+
+
+        <!-- =================================================
+             CONTROLES MOBILE
+        ================================================== -->
+
+        <div
+            id="mobileControls"
+            class="mobile-controls"
+        >
+
+            <div class="dpad">
+
+                <button
+                    data-key="ArrowUp"
+                    class="mobile-key key-up"
+                >
+                    ▲
+                </button>
+
+                <button
+                    data-key="ArrowLeft"
+                    class="mobile-key key-left"
+                >
+                    ◀
+                </button>
+
+                <button
+                    data-key="ArrowDown"
+                    class="mobile-key key-down"
+                >
+                    ▼
+                </button>
+
+                <button
+                    data-key="ArrowRight"
+                    class="mobile-key key-right"
+                >
+                    ▶
+                </button>
+
+            </div>
+
+
+            <button
+                id="actionButton"
+                class="action-button"
+            >
+                ♥
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FINAL
+    ====================================================== -->
+
+    <section
+        id="ending"
+        class="screen"
+    >
+
+        <canvas
+            id="endingCanvas"
+        ></canvas>
+
+
+        <div class="ending-content">
+
+
+            <p class="ending-eyebrow">
+                O FIM DESTA AVENTURA
+            </p>
+
+
+            <h2>
+                Nina...
+            </h2>
+
+
+            <p class="princess">
+                minha princesinha linda
+            </p>
+
+
+            <div class="ending-divider"></div>
+
+
+            <div class="ending-text">
+
+                <p>
+                    No fim, acho que descobri uma coisa...
+                </p>
+
+                <p>
+                    Não importa quantas coisas
+                    apareçam no caminho.
+                </p>
+
+                <p>
+                    Se eu puder continuar caminhando
+                    ao seu lado...
+                </p>
+
+            </div>
+
+
+            <div class="final-heart">
+                ♥
+            </div>
+
+
+            <p class="ending-highlight">
+
+                ...acho que qualquer caminho
+                pode se tornar especial.
+
+            </p>
+
+
+            <div class="ending-signature">
+
+                <strong>
+                    Nina ❤️
+                </strong>
+
+                <span>
+                    Obrigado por fazer parte
+                    da minha pequena aventura.
+                </span>
+
+            </div>
+
+
+            <p class="beginning-message">
+
+                Mas talvez esse seja
+                só o começo.
+
+            </p>
+
+
+            <button
+                id="restartButton"
+                class="restart-button"
+            >
+                viver novamente
+            </button>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
